@@ -29,16 +29,21 @@ export default class _Taskbar extends Component {
                 currentWindow.unsetMinimized();
             } else {
                 currentWindow.setMinimized();
-            }
-            if (
-                this.props.windowRefs.some(
-                    (w) =>
-                        !(w.current.state.minimized || w.current.props.i === i)
-                )
-            ) {
-                this.props.setActiveWindow((i + 1) % this.props.windows.length);
-            } else {
-                this.props.setActiveWindow(-1);
+                if (
+                    this.props.windowRefs.some(
+                        (w) =>
+                            !(
+                                w.current.state.minimized ||
+                                w.current.props.i === i
+                            )
+                    )
+                ) {
+                    this.props.setActiveWindow(
+                        (i + 1) % this.props.windows.length
+                    );
+                } else {
+                    this.props.setActiveWindow(-1);
+                }
             }
         } else {
             if (currentWindow.state.minimized) {

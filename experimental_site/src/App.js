@@ -18,22 +18,22 @@ export default class App extends Component {
         super(props);
         let windows = [
             {
-                title: "Projects",
+                title: "window 1",
                 x: Math.random() * (window.innerWidth - WINDOW_W),
                 y: Math.random() * (window.innerHeight - 60 - WINDOW_H),
             },
             {
-                title: "Creative Coding",
+                title: "window 2",
                 x: Math.random() * (window.innerWidth - WINDOW_W),
                 y: Math.random() * (window.innerHeight - 60 - WINDOW_H),
             },
             {
-                title: "Projects2",
+                title: "window 3",
                 x: Math.random() * (window.innerWidth - WINDOW_W),
                 y: Math.random() * (window.innerHeight - 60 - WINDOW_H),
             },
             {
-                title: "Creative Coding2",
+                title: "window 4",
                 x: Math.random() * (window.innerWidth - WINDOW_W),
                 y: Math.random() * (window.innerHeight - 60 - WINDOW_H),
             },
