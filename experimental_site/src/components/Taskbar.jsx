@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import TaskBarButton from "./TaskBarButton";
-
+import StartMenu from "./StartMenu";
 const Taskbar = styled.div`
     background-color: #c2c2c2;
     height: 40px;
@@ -22,6 +22,12 @@ const Divider = styled.div`
     margin-right: 3px;
 `;
 export default class _Taskbar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            startOpen: true,
+        };
+    }
     onClick = (i) => {
         let currentWindow = this.props.windowRefs[i].current;
         if (i === this.props.activeWindow) {
@@ -52,6 +58,13 @@ export default class _Taskbar extends Component {
             this.props.setActiveWindow(i);
         }
     };
+
+    onStartClick = () => {
+        this.setState({
+            startOpen: !this.state.startOpen,
+        });
+    };
+
     generateWindowButtons = () => {
         return this.props.windows.map((w, i) => {
             return (
@@ -66,11 +79,16 @@ export default class _Taskbar extends Component {
     };
     render() {
         return (
-            <Taskbar>
-                <TaskBarButton title="Start" />
-                <Divider />
-                {this.generateWindowButtons()}
-            </Taskbar>
+            <>
+                {this.state.startOpen && (
+                    <StartMenu startItems={this.props.startItems} />
+                )}
+                <Taskbar>
+                    <TaskBarButton title="Start" onClick={this.onStartClick} />
+                    <Divider />
+                    {this.generateWindowButtons()}
+                </Taskbar>
+            </>
         );
     }
 }

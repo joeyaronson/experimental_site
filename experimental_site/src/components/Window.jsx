@@ -40,7 +40,7 @@ const ContentContainer = styled.div`
     display: flex-grow;
 `;
 const Content = styled.div`
-    background-color: #00ffff;
+    background-color: #ffffff;
     height: 100%;
     width: 100%;
     box-sizing: border-box;
@@ -175,8 +175,8 @@ export default class _Window extends Component {
                             ></Button>
                         </IconGroup>
                     </TopBar>
-                    <ContentContainer>
-                        <Content>{this.props.activeWindow.toString()}</Content>
+                    <ContentContainer >
+                        <Content id={this.props.title}>{this.props.content}</Content>
                     </ContentContainer>
                 </Window>
             </Draggable>
