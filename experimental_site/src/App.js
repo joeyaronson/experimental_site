@@ -5,6 +5,8 @@ import styled from "styled-components";
 import Taskbar from "./components/Taskbar";
 import Window from "./components/Window";
 import StartItems from "./utils";
+import P5 from "./components/P5";
+
 const Desktop = styled.div`
     background-color: #008080;
     min-height: calc(100vh - 47px);
@@ -18,6 +20,12 @@ export default class App extends Component {
         super(props);
 
         let windows = [
+            {
+                title: "firefly.js",
+                content: <P5 title={"firefily.js"} />,
+                x: Math.random() * (window.innerWidth - WINDOW_W),
+                y: Math.random() * (window.innerHeight - 60 - WINDOW_H),
+            },
             {
                 title: "window 1",
                 x: Math.random() * (window.innerWidth - WINDOW_W),
